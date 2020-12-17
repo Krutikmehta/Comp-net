@@ -14,6 +14,6 @@ touch.stark.com is the cname of the server in the DNS record </br>
 Deep Yadav - EE18BTECH11011 </br>
 Krutik Mehta - EE18BTECH11027 </br>
 Krati Arela - EE18BTECH11050 </br>
-Mohammed Sadiq - EE18BTECH11051 </brr>
+Mohammed Sadiq - EE18BTECH11051 </br>
 Shaik Abdur Rahman Nawaz - EE18BTECH11052 
  
