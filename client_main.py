@@ -12,8 +12,9 @@
 
 import socket,sys
 
-hostname = 'localhost' #sys.argv[1]
-infolist = socket.getaddrinfo(hostname,65431,socket.AF_INET,socket.SOCK_STREAM)
+hostname = sys.argv[1]
+port = 65432
+infolist = socket.getaddrinfo(hostname,port,socket.AF_INET,socket.SOCK_STREAM)
 list1 = infolist[0]
 socket_args = list1[0:3]
 print(socket_args)
@@ -43,24 +44,22 @@ client.send(str.encode(password))
 	3 : Login Failed
 '''
 # Receive response 
-response = client.recv(2048)
-response = response.decode()
 
 print(response)
 
-with open('received_file', 'wb') as f:
+with open('downloaded.txt', 'wb') as f:
     print('file opened')
     while True:
         print('receiving data...')
         data = client.recv(1024)
-        print('data=%s', (data))
+        print('data=%s', repr(data))
         if not data:
             break
         # write data to a file
         f.write(data)
 
 f.close()
-print('Successfully get the file')
+print('Successfully got the file')
 client.close()
 print('connection closed')
 
