@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[5]:
-
-
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[13]:
-
-
 import socket  
 import os
 import threading
@@ -51,7 +39,6 @@ def threaded_client(connection):
         for k, v in HashTable.items():
             label, num = k,v
             print("{:<8} {:<20}".format(label, num))
-        print("-------------------------------------------")
         
     else:
 # If already existing user, check if the entered password is correct
@@ -87,8 +74,6 @@ while True:
     print('Connection Request: ' + str(ThreadCount))
 ServerSocket.close()
 
-
-# In[ ]:
 
 
 
