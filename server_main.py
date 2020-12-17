@@ -17,8 +17,8 @@ import hashlib
 
 
 # Create Socket (TCP) Connection
-host = '127.0.0.1'
-port = 65431
+host = '10.0.0.69'
+port = 65432
 ServerSocket = socket.socket(family = socket.AF_INET, type = socket.SOCK_STREAM) 
 ServerSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT,1)
 
@@ -56,7 +56,7 @@ def threaded_client(connection):
     else:
 # If already existing user, check if the entered password is correct
         if(HashTable[name] == password):
-            connection.send(str.encode('Connection Successful')) # Response Code for Connected Client 
+            #connection.send(str.encode('Connection Successful')) # Response Code for Connected Client 
             print('Connected : ',name)
             print('Connection denied : ',name)
             while True:
