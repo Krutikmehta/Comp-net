@@ -1,14 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
-
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[14]:
-
 
 import socket,sys
 
@@ -38,12 +27,6 @@ response = client.recv(2048)
 # Input Password
 password = input(response.decode())	
 client.send(str.encode(password))
-''' Response : Status of Connection :
-	1 : Registeration successful 
-	2 : Connection Successful
-	3 : Login Failed
-'''
-# Receive response 
 
 print(response)
 
@@ -62,16 +45,3 @@ f.close()
 print('Successfully got the file')
 client.close()
 print('connection closed')
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
