@@ -1,0 +1,78 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[9]:
+
+
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[14]:
+
+
+import socket,sys
+
+hostname = 'localhost' #sys.argv[1]
+infolist = socket.getaddrinfo(hostname,65431,socket.AF_INET,socket.SOCK_STREAM)
+list1 = infolist[0]
+socket_args = list1[0:3]
+print(socket_args)
+address = list1[4]
+print(address)
+# create an ipv4 (AF_INET) socket object using the tcp protocol (SOCK_STREAM)
+client = socket.socket(*socket_args)
+
+# connect the client
+# client.connect((target, port))
+
+client.connect(address)
+
+response = client.recv(2048)
+# Input UserName
+name = input(response.decode())
+
+client.send(str.encode(name))
+response = client.recv(2048)
+
+# Input Password
+password = input(response.decode())	
+client.send(str.encode(password))
+''' Response : Status of Connection :
+	1 : Registeration successful 
+	2 : Connection Successful
+	3 : Login Failed
+'''
+# Receive response 
+response = client.recv(2048)
+response = response.decode()
+
+print(response)
+
+with open('received_file', 'wb') as f:
+    print('file opened')
+    while True:
+        print('receiving data...')
+        data = client.recv(1024)
+        print('data=%s', (data))
+        if not data:
+            break
+        # write data to a file
+        f.write(data)
+
+f.close()
+print('Successfully get the file')
+client.close()
+print('connection closed')
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
